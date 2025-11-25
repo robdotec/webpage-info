@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A comprehensive sample page for benchmarking webpage-info parsing performance. This page includes various metadata formats commonly found on modern websites.">
+    <meta name="keywords" content="rust, html, parsing, benchmark, opengraph, schema.org">
+    <meta name="author" content="Benchmark Test">
+    <meta name="robots" content="index, follow">
+
+    <title>Sample Article - Benchmarking HTML Parsing Performance</title>
+
+    <link rel="canonical" href="https://example.com/articles/sample-article">
+    <link rel="alternate" type="application/rss+xml" href="https://example.com/feed.xml" title="RSS Feed">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Sample Article for Benchmarking">
+    <meta property="og:description" content="Testing OpenGraph metadata extraction performance with a realistic webpage structure.">
+    <meta property="og:url" content="https://example.com/articles/sample-article">
+    <meta property="og:site_name" content="Example Site">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://example.com/images/hero.jpg">
+    <meta property="og:image:secure_url" content="https://example.com/images/hero.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hero image for sample article">
+    <meta property="og:image" content="https://example.com/images/thumbnail.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+    <meta property="og:video" content="https://example.com/videos/intro.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1920">
+    <meta property="og:video:height" content="1080">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@examplesite">
+    <meta name="twitter:creator" content="@author">
+    <meta name="twitter:title" content="Sample Article">
+    <meta name="twitter:description" content="A sample article for testing.">
+    <meta name="twitter:image" content="https://example.com/images/twitter-card.jpg">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://example.com/#organization",
+                "name": "Example Organization",
+                "url": "https://example.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://example.com/logo.png"
+                },
+                "sameAs": [
+                    "https://twitter.com/example",
+                    "https://facebook.com/example",
+                    "https://linkedin.com/company/example"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://example.com/#website",
+                "url": "https://example.com",
+                "name": "Example Site",
+                "publisher": {
+                    "@id": "https://example.com/#organization"
+                }
+            },
+            {
+                "@type": "Article",
+                "@id": "https://example.com/articles/sample-article#article",
+                "headline": "Sample Article for Benchmarking HTML Parsing",
+                "description": "A comprehensive test article.",
+                "author": {
+                    "@type": "Person",
+                    "name": "John Doe",
+                    "url": "https://example.com/authors/john-doe"
+                },
+                "datePublished": "2025-11-24T10:00:00Z",
+                "dateModified": "2025-11-25T14:30:00Z",
+                "image": "https://example.com/images/hero.jpg",
+                "publisher": {
+                    "@id": "https://example.com/#organization"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* These styles should be excluded from text content */
+        body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { border-bottom: 1px solid #eee; margin-bottom: 20px; }
+        nav a { margin-right: 15px; }
+        article { margin-bottom: 40px; }
+        .hidden { display: none; }
+        footer { border-top: 1px solid #eee; margin-top: 40px; padding-top: 20px; color: #666; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/articles">Articles</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <h1>Sample Article - Benchmarking HTML Parsing</h1>
+        <p class="meta">Published on November 24, 2025 by <a href="/authors/john-doe">John Doe</a></p>
+    </header>
+
+    <article>
+        <section>
+            <h2>Introduction</h2>
+            <p>This is a sample article designed to test the performance of HTML parsing and metadata extraction. It includes various common elements found on modern web pages, including navigation, articles, sidebars, and footers.</p>
+            <p>The webpage-info library extracts metadata from HTML documents, including titles, descriptions, OpenGraph data, Schema.org structured data, and links. This benchmark measures how efficiently these operations are performed.</p>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <ul>
+                <li><a href="/features/parsing">Fast HTML parsing</a> using the scraper library</li>
+                <li><a href="/features/opengraph">OpenGraph metadata extraction</a> for social sharing</li>
+                <li><a href="/features/schema">Schema.org JSON-LD parsing</a> for structured data</li>
+                <li><a href="/features/links">Link extraction</a> with URL resolution</li>
+                <li><a href="/features/text">Text content extraction</a> excluding scripts and styles</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Performance Considerations</h2>
+            <p>When parsing large HTML documents, several factors affect performance:</p>
+            <ol>
+                <li>Document size and complexity</li>
+                <li>Number of elements to traverse</li>
+                <li>CSS selector matching efficiency</li>
+                <li>Memory allocation patterns</li>
+            </ol>
+            <p>The library uses cached CSS selectors via <code>OnceLock</code> to avoid repeated parsing, and employs <code>HashSet</code> for O(1) lookups when filtering excluded elements.</p>
+        </section>
+
+        <section>
+            <h2>Example Usage</h2>
+            <p>Here's how to use the library:</p>
+            <pre><code>use webpage_info::WebpageInfo;
+
+#[tokio::main]
+async fn main() {
+    let info = WebpageInfo::fetch("https://example.com").await.unwrap();
+    println!("Title: {:?}", info.html.title);
+}</code></pre>
+        </section>
+
+        <aside>
+            <h3>Related Articles</h3>
+            <ul>
+                <li><a href="/articles/rust-html-parsing">HTML Parsing in Rust</a></li>
+                <li><a href="/articles/web-scraping-best-practices">Web Scraping Best Practices</a></li>
+                <li><a href="/articles/async-rust">Async Rust Programming</a></li>
+                <li><a href="/articles/serde-json">Working with JSON in Rust</a></li>
+                <li><a href="/articles/error-handling">Error Handling Patterns</a></li>
+            </ul>
+        </aside>
+
+        <section>
+            <h2>Conclusion</h2>
+            <p>Efficient HTML parsing is crucial for web scraping, search engine indexing, and content analysis applications. This library provides a fast, safe, and ergonomic API for extracting structured metadata from HTML documents.</p>
+            <p>For more information, check out the <a href="https://docs.rs/webpage-info">documentation</a> or the <a href="https://github.com/robdotec/webpage-info">GitHub repository</a>.</p>
+        </section>
+    </article>
+
+    <footer>
+        <p>&copy; 2025 Example Organization. All rights reserved.</p>
+        <nav>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/sitemap.xml">Sitemap</a>
+        </nav>
+    </footer>
+
+    <script>
+        // This script content should be excluded from text extraction
+        console.log('Page loaded');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM ready');
+        });
+    </script>
+    <script>
+        // Analytics script
+        (function() {
+            var tracker = { pageView: function() { console.log('tracked'); } };
+            tracker.pageView();
+        })();
+    </script>
+
+    <noscript>
+        <p>JavaScript is required for full functionality.</p>
+    </noscript>
+</body>
+</html>

@@ -1,0 +1,48 @@
+[package]
+name = "webpage-info"
+version = "1.0.0"
+authors = ["Robert F. Ecker <robert@robdotec.com>"]
+edition = "2024"
+rust-version = "1.91.1"
+description = "Modern library to extract webpage metadata: title, description, OpenGraph, Schema.org, links, and more"
+documentation = "https://docs.rs/webpage-info"
+repository = "https://github.com/robdotec/webpage-info"
+license = "MIT"
+keywords = ["webpage", "html", "opengraph", "metadata", "scraping"]
+categories = ["web-programming", "parser-implementations"]
+
+[features]
+default = ["http"]
+http = ["dep:reqwest"]
+
+[dependencies]
+# HTTP client (optional, for fetching URLs)
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "gzip", "brotli", "stream"], optional = true }
+
+# HTML parsing
+scraper = "0.22"
+
+# URL handling
+url = "2.5"
+
+# JSON parsing for Schema.org
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+thiserror = "2"
+
+# Async runtime
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net"] }
+
+# Async stream utilities
+futures-util = "0.3"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net"] }
+wiremock = "0.6"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "parsing"
+harness = false
