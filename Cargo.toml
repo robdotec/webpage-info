@@ -1,6 +1,6 @@
 [package]
 name = "webpage-info"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Robert F. Ecker <robert@robdotec.com>"]
 edition = "2024"
 rust-version = "1.91.1"
@@ -46,3 +46,6 @@ criterion = { version = "0.5", features = ["html_reports"] }
 [[bench]]
 name = "parsing"
 harness = false
+
+[package.metadata.docs.rs]
+all-features = true
